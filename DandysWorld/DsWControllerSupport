@@ -1,0 +1,69 @@
+local plr = game.Players.LocalPlayer
+local humrp = plr.Character.HumanoidRootPart
+local UIS = game:GetService("UserInputService")
+
+UIS.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.ButtonL2 then
+        game:GetService("ReplicatedStorage").Events.SprintEvent:FireServer(true)
+        print("Sprinting")
+     end
+ end)
+
+UIS.InputEnded:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.ButtonL2 then
+        game:GetService("ReplicatedStorage").Events.SprintEvent:FireServer(false)
+        print("Walking")
+     end
+ end)
+
+if game.PlaceId == 16552821455 then
+    
+    UIS.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.ButtonY then
+        local args = {
+            [1] = plr.Character,
+            [2] = game:GetService("Players").LocalPlayer.Character.Inventory.Slot1
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemEvent"):InvokeServer(unpack(args))
+        print("Item Slot 1")
+     end
+ end)
+    
+    UIS.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.ButtonB then
+        local args = {
+            [1] = plr.Character,
+            [2] = game:GetService("Players").LocalPlayer.Character.Inventory.Slot2
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemEvent"):InvokeServer(unpack(args))
+        print("Item Slot 2")
+     end
+ end)
+    
+    UIS.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.ButtonA then
+        local args = {
+            [1] = plr.Character,
+            [2] = game:GetService("Players").LocalPlayer.Character.Inventory.Slot3
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("ItemEvent"):InvokeServer(unpack(args))
+        print("Item Slot 3")
+     end
+ end)
+    
+    UIS.InputBegan:Connect(function(input)
+    if input.KeyCode == Enum.KeyCode.ButtonL3 then
+        local args = {
+            [1] = plr.Character,
+            [2] = humrp.CFrame,
+            [3] = false
+}
+        game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("AbilityEvent"):InvokeServer(unpack(args))
+        print("Ability Used")
+     end
+ end)
+    
+end
