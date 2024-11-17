@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RodeStriker/Roblox-Scripts/refs/heads/main/DandysWorld/GACDW"))()
